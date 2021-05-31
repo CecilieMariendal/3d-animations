@@ -13,13 +13,18 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
 const geomotry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshBasicMaterial({
+const material = new THREE.MeshStandardMaterial({
   color: '#ff69b4',
-  wireframe: true,
 });
 const torus = new THREE.Mesh(geomotry, material);
 
 scene.add(torus);
+
+const pointLight = new THREE.PointLight('0xFFFFFF');
+pointLight.position.set(5, 5, 5);
+
+const ambientLight = new THREE.AmbientLight('0xFFFFFF');
+scene.add(pointLight, ambientLight)
 
 
 function animate() {
