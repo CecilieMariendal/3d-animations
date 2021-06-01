@@ -21,10 +21,10 @@ const torus = new THREE.Mesh(geomotry, material);
 
 scene.add(torus);
 
-const pointLight = new THREE.PointLight('0xFFFFFF');
+const pointLight = new THREE.PointLight(0xFFFFFF);
 pointLight.position.set(5, 5, 5);
 
-const ambientLight = new THREE.AmbientLight('0xFFFFFF');
+const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // const lightHelper = new THREE.PointLightHelper(pointLight);
@@ -37,7 +37,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 function addStar() {
   const geomotry = new THREE.SphereGeometry(0.25);
   const material = new THREE.MeshStandardMaterial({
-    color: '0xFFFFFF',
+    color: 0xffffff,
   });
   const star = new THREE.Mesh(geomotry, material);
 
