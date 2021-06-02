@@ -2,6 +2,7 @@ import './style.css'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import HelvetikerFontPath from 'three/examples/fonts/helvetiker_regular.typeface.json';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -32,6 +33,26 @@ scene.add(pointLight, ambientLight);
 // scene.add(lightHelper, gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+
+const textGeometry = new THREE.TextGeometry( 'Cecilie', {
+	font: new THREE.Font(HelvetikerFontPath),
+	size: 5,
+	height: 1,
+	curveSegments: 30,
+	bevelEnabled: true,
+	bevelThickness: 0.5,
+	bevelSize: 0.25,
+	bevelOffset: 0,
+	bevelSegments: 1,
+});
+var textMaterial = new THREE.MeshPhongMaterial( 
+  { color: 0xFF69B4, specular: 0xffffff }
+);
+
+var text = new THREE.Mesh( textGeometry, textMaterial );
+
+text.position.set(-10, -2, 0);
+scene.add( text );
 
 
 function addStar() {
