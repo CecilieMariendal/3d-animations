@@ -14,13 +14,16 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-const geomotry = new THREE.TorusGeometry(10, 3, 16, 100);
+const geomotry = new THREE.TorusGeometry(15, 1, 16, 50);
+const geomotry2 = new THREE.TorusGeometry(13, 1, 16, 50);
 const material = new THREE.MeshStandardMaterial({
   color: '#ff69b4',
 });
 const torus = new THREE.Mesh(geomotry, material);
+const torus2 = new THREE.Mesh(geomotry2, material);
 
 scene.add(torus);
+scene.add(torus2);
 
 const pointLight = new THREE.PointLight(0xFFFFFF);
 pointLight.position.set(5, 5, 5);
@@ -80,6 +83,10 @@ function animate() {
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
+
+  torus2.rotation.x -= 0.003;
+  torus2.rotation.y -= 0.0075;
+  torus2.rotation.z -= 0.012;
 
   controls.update();
 
